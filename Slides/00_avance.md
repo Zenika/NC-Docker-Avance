@@ -1,4 +1,4 @@
-# Docker découverte
+# Docker avancé
 
 <!-- .slide: class="page-title" -->
 
@@ -26,11 +26,11 @@ github: *vdemeester*<br>
 <br>
 **Programme de la soirée :**<br>
 <br>
-   19h30-19h50 : Docker et VMs (20min)<br>
-   19h50-20h30 : Premier hands-on (40min)<br>
+   19h30-19h50 : Cycle de vie & Multi-conteneurs (30min)<br>
+   19h50-20h30 : Premier hands-on (45min)<br>
    20h30-21h00 : *Pizza* (30min)<br>
-   21h00-21h30 : Patterns simples (30min)<br>
-   21h30-22h30 : Deuxieme hands-on (1h)<br>
+   21h00-21h30 : Multi-host et déploiement (30min)<br>
+   21h30-22h30 : Deuxieme hands-on (45min)<br>
 <br>
 
 **Vous avez des problèmes pour installer Docker ?**<br>
@@ -46,11 +46,11 @@ github: *vdemeester*<br>
 <br>
 <br>
 
-- [Qu'est-ce que Docker ?](#/0/1)
-- [Comparaison avec les VMs traditionelles](#/0/2)
-- [Hands-on](#/0/3)
-- [Cycle de vie d'un conteneur](#/0/4)
-- [Patterns d'utilisation simples](#/0/5)
-- [Hands-on](#/0/6)
+- [Cycle de vie : rappels et compléments](#/1/0)
+- [Gestion multi-conteneurs](#/2/0)
+- [Hands-on](#/3/0)
+- [Gestion multi-hosts](#/4/0)
+- [Déploiement dans le "cloud"](#/5/0)
+- [Hands-on](#/6/0)
 
 
