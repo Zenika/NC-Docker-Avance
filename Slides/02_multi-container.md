@@ -2,41 +2,41 @@
 
 
 
-# Pourquoi ?
+## Pourquoi ?
 
-Notes:
+Notes :
 - Besoin réel, plusieurs conteneurs, ...
 
 
 
-# Links
+## Links
 
-Notes:
+Notes :
 - introduction des liens pour faire discuter les conteneurs
 
 
 
-# Let's do it (manually)
+## Let's do it (manually)
 
 
-Notes:
+Notes :
 - exemple + interactif sur mise en place à la main
 
 
 
-# Outils
+## Outils
 
 
-Notes:
+Notes :
 - à la main c'est bien mais.. je suis fainéant.. :D
 - Local (now) / distant (2nd partie @mariolet)
 - fig, decking, flocker, ...
 
 
 
-# Docker compose (fig)
+## Docker compose (fig)
 
-Notes:
+Notes :
 - pourquoi présenter celui là ? << officiel
 - introduction, feature, démo
 

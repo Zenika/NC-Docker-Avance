@@ -6,28 +6,29 @@
 
 ![](resources/images/decouverte-conteneur-workflow.png)
 
-Notes:
+Notes :
 - TODO update the schema and use ditaa :)
 
 
 
 ## Images (1/2)
 
-Notes:
+Notes :
 - import, export, (insert ?), load, save
 - history, tag
 
 
+
 ## Images (2/2)
 
-Notes:
+Notes :
 - pull/push, automated build.. <= publier vos images
 
 
 
 ## Dockerfile
 
-Notes:
+Notes :
 - Parler des commandes non présenter la dernière fois, ENTRYPOINT,
   ONBUILD
 - Rappels sur le comportement de certaines commande WORKDIR
@@ -36,7 +37,7 @@ Notes:
 
 ## Conteneurs
 
-Notes:
+Notes :
 - kill, wait, exec <-- make it work (enter)
 - inspect, events, port, top, stats (1.5)
 - cp : copies a folder out of a container fs
