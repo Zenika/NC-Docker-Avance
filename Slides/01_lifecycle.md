@@ -1,5 +1,7 @@
 # Cycle de vie (bis)
 
+![](resources/images/pret-pas-pret.jpg)
+
 
 
 ## Rappels

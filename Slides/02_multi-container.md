@@ -1,5 +1,7 @@
 # Multi conteneurs
 
+![](resources/images/chiffrage-tout-casse.jpg)
+
 
 
 ## Pourquoi ?
