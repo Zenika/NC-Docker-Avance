@@ -108,3 +108,11 @@ Notes :
 - kill, wait, exec <-- make it work (enter)
 - inspect, events, port, top, stats (1.5)
 - cp : copies a folder out of a container fs
+
+
+
+## Volumes
+
+Notes :
+- ``--volume-from``
+- Data container pattern ?

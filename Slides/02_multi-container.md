@@ -50,7 +50,6 @@ Notes :
 
 
 
-
 ## Links (2/2)
 
 - Variables d'environnement
@@ -68,13 +67,29 @@ Notes :
 
 ## Let's do it (manually)
 
+- Redis : ``docker run -d --name redis redis``
+- PostgreSQL : ``docker run -d --name db postgresql``
+- Backend :``docker run -d --link redis:redis --link db:db --name backend myfrontend``
+- Frontend : ``docker run -d --link backend:back mybackend``
+![](resources/images/giphy_whatif1.gif)
+
+Et si on pouvait faire ça en une commande ?
 
 Notes :
 - exemple + interactif sur mise en place à la main
+- L'ordre est important, 4 commandes c'est pas la mort mais..
 
 
 
 ## Outils
+
+- *Docker-compose* a.k.a **fig** (python, conf. yaml)
+    - Support officiel Docker
+
+
+- Crane (Go, conf. json/yaml)
+- Maestro (Python, conf. yaml)
+- Decking (Node, conf. json)
 
 
 Notes :
@@ -84,9 +99,54 @@ Notes :
 
 
 
-## Docker compose (fig)
+## docker-compose : configuration
+
+docker-compose.yml
+```
+web:
+    build: .
+    command: python app.py
+    links:
+    - db
+    ports:
+    - "8000:8000"
+mycontainer:
+    build: ./path
+    expose:
+    - "3000"
+    volumes:
+    - ~/configs:/etc/configs/:ro
+    net: "none"
+    user: moi
+db:
+    image: postgres
+    environment:
+    - LANG=C
+```
 
 Notes :
-- pourquoi présenter celui là ? << officiel
 - introduction, feature, démo
+
+
+
+## docker-compose (2/2) : commandes
+
+- ``up`` : démarrer tous ou un les conteneurs
+- ``build`` : construire les images & conteneurs sans les démarrer
+- ``start``, ``stop``, ``kill`` : démarrer, arrêter, tuer
+- ``run`` : démarrer un conteneur avec un autre commande
+- ``logs``, ``port``, ``ps`` : voir les infos (logs, port, processus)
+- ``scale`` : définir le nombre de containers à lancer pour chaque
+```bash
+$ fig scale web=2 worker=3
+```
+
+Notes :
+- live demo avec scale également
+
+
+
+## Let's (re)do it
+
+![](resources/images/loi-murphy.jpg)
 
