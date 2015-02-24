@@ -1,6 +1,6 @@
 # Cycle de vie (bis)
 
-![](resources/images/pret-pas-pret.jpg)
+![](resources/images/chiffrage-tout-casse.jpg)
 
 
 
@@ -75,7 +75,33 @@ Notes :
 
 
 
-## Conteneurs
+## Conteneurs (1/2)
+
+- ``export`` : exporter le contenu d'un conteneur (tar).
+  - Ne contient pas les volumes
+  - Ne contient pas les layers (de l'image sous-jacente)
+- ``import`` : créer une image à partir d'une archive (tar)
+  - Créer une image vide, donc pas de layer
+  - Prends une URL (http) ou ``-`` et entrée standard
+- ``inspect`` : Récupérer des informations *bas-niveau* sur un
+  conteneur
+    - Par défault JSON, mais possible de lui passer des *format*
+
+Notes :
+- ``export`` souvent utilisé pour *applatir* une image
+- ``inspect`` démo avec formats
+
+
+
+## Conteneurs (2/2)
+
+- ``port`` : Lister les ports mappés (bindés) pour un conteneur
+- ``top`` : afficher les processus du conteneur
+- ``stats`` : afficher des statistiques pour un conteneur
+- ``logs`` : Récupérer les logs d'un conteneur (stout, stderr), avec
+ou sans timestamp, en mode follow (tail -f) ou non.
+
+- ``wait`` : attendre qu'un container se termine
 
 Notes :
 - export/import
