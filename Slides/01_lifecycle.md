@@ -110,3 +110,12 @@ Notes :
 - cp : copies a folder out of a container fs
 
 
+
+## Volumes
+
+- Rappel sur les volumes
+- Volumes partagés
+
+Notes :
+- Volumes partagés ``--volume-from``
+
