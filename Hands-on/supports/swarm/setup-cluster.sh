@@ -32,6 +32,7 @@ for node in $(seq 4)
 do
     ENGINE_PORT="2375${node}"
     LABELS="--label $DEFAULT_LABELS"
+    NODE_NAME="dind-${ENGINE_PORT}"
     test $node == 2 && {
         LABELS="--label storage=ssd"
     }
@@ -39,8 +40,8 @@ do
         LABELS="${LABELS} --label type=somuchpower"
     }
     notice "node ${node} : remove running one (if present)"
-    docker stop "dind-${ENGINE_PORT}" >/dev/null 2>/dev/null || true
-    docker rm "dind-${ENGINE_PORT}" >/dev/null 2>/dev/null || true
+    docker stop "${NODE_NAME}" >/dev/null 2>/dev/null || true
+    docker rm "${NODE_NAME}" >/dev/null 2>/dev/null || true
     notice "node ${node} : start a docker engine in docker on port ${ENGINE_PORT} with option : $LABELS"
     dind $ENGINE_PORT "$LABELS"
     notice "node ${node} : wait for engine to startup (5s)"
@@ -51,7 +52,9 @@ do
 done
 
 log "start the swarm manager"
-docker run -d -p 127.0.0.1:2385:2375 swarm manage token://${CLUSTER_ID}
+docker stop swarm-manager >/dev/null 2>/dev/null || true
+docker rm swarm-manager >/dev/null 2>/dev/null || true
+docker run --name "swarm-manager" -d -p 127.0.0.1:2385:2375 swarm manage token://${CLUSTER_ID}
 
 # TLS error : https://docs.docker.com/articles/https/
 # TODO ?
