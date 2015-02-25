@@ -1,0 +1,15 @@
+db:
+  image: postgres
+  environment:
+    - POSTGRES_PASSWORD=thisissecret
+  volumes:
+    - ./data:/var/lib/postgresql/data
+redis:
+  image: redis
+frontend:
+  build: app
+  links:
+    - db
+    - redis
+
+
