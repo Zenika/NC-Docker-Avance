@@ -1,17 +1,18 @@
 # Multi conteneurs
 
-![](resources/images/pret-pas-pret.jpg)
+<img style="float: left; position: fixed; bottom: 0; z-index: -100;" src="resources/images/42fois.jpg" />
 
 
 
 ## Pourquoi ?
 
 - 1 conteneurs, 1 processus
-- Mon application, plusieurs services<br/>
-    - Redis
+- *Real-life* pas aussi simple
+- [Flask by Example](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
     - PostgreSQL
-    - Elasticsearch
-    - Tomcat
+    - Redis
+    - Backend (flask python)
+    - Frontend (angular js)
 
 Notes :
 - Besoin réel, plusieurs conteneurs, ...
@@ -21,6 +22,8 @@ https://github.com/gitlabhq/gitlabhq/blob/master/doc/development/gitlab_diagram_
 
 
 ## Comment ?
+
+TODO
 
 Notes :
 - Schema avec les différents composants dans des docker (mode dev,

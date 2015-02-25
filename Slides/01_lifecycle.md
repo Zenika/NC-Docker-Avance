@@ -1,6 +1,6 @@
 # Cycle de vie (bis)
 
-![](resources/images/chiffrage-tout-casse.jpg)
+![](resources/images/pret-pas-pret.jpg)
 
 
 
@@ -110,9 +110,3 @@ Notes :
 - cp : copies a folder out of a container fs
 
 
-
-## Volumes
-
-Notes :
-- ``--volume-from``
-- Data container pattern ?
