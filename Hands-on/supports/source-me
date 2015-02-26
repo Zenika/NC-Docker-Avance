@@ -10,14 +10,14 @@ swarm() {
     docker run --privileged -it  \
            -v /var/run/docker.sock:/var/run/docker.sock  \
            -v /root/.docker:/root/.docker --rm  \
-           emilevauge/docker-cluster swarm $@
+           swarm $@
 }
 docker-compose() {
     docker run -it --rm \
            -v /var/run/docker.sock:/var/run/docker.sock  \
            -v $PWD:/src \
            -w /src \
-           zenika/compose $@
+           zenika/compose:1.1.0 $@
 }
 dind() {
     docker run --privileged --name "$1" -h "$1" -d -p $2:$2 -e PORT=$2 -e DOCKER_DAEMON_ARGS="$3" dind

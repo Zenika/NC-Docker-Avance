@@ -1,5 +1,10 @@
 Start a redis on node with type==somuchpower and bind port
 docker -H 127.0.0.1:2385 run -d -P -e constraint:type==somuchpower --name redis -p 6379:6379 redis
+
+Try a second time, won't find it..
+docker -H 127.0.0.1:2385 run -d -P -e constraint:type==somuchpower --name redis2 -p 6379:6379 redis
+FATA[0000] Error response from daemon: unable to find a node with port 6379 available
+
 Start a mysql node with type==ssd (and randowm port \o/)
 docker -H 127.0.0.1:2385 run -d -P -e constraint:storage==ssd --name mysql mysql
 
@@ -12,4 +17,13 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 Connect to redis (--link)
 docker -H 127.0.0.1:2385 run -it --link redis1:redis --rm redis sh -c
 'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
+
+Run nginx on the same node as redis
+docker -H 127.0.0.1:2385 run -d --name nginx -e affinity:container==redis nginx
+
+Run postgres only on node that has the image
+docker -H 127.0.0.1:2835 run -d --name postgres -e affinity:image==postgres
+
+Run a redis same binding (will be on another node)
+docker -H 127.0.0.1:2385 run -d -P --name redis2 -p 6379:6379 redis
 
