@@ -17,7 +17,7 @@ docker-compose() {
            -v /var/run/docker.sock:/var/run/docker.sock  \
            -v $PWD:/src \
            -w /src \
-           jmcarbo/docker-compose $@
+           zenika/compose $@
 }
 dind() {
     docker run --privileged --name "$1" -h "$1" -d -p $2:$2 -e PORT=$2 -e DOCKER_DAEMON_ARGS="$3" dind

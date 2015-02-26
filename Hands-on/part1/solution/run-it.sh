@@ -16,7 +16,7 @@ set -e
 
 # Initialize the workspace to be able to work
 log "clone the sources"
-test -d flask-by-example || git clone https://github.com/realpython/flask-by-example.git && notice "already done"
+test -d app/flask-by-example || git clone https://github.com/realpython/flask-by-example.git app/flask-by-example && notice "already done"
 
 log "Let's build it"
 docker-compose build

@@ -8,6 +8,7 @@ redis:
   image: redis
 frontend:
   build: app
+  command: python app.py
   links:
     - db
     - redis
