@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 log() {
     echo "$(tput setaf 2)>$(tput bold)>$(tput sgr0) $@"
 }
@@ -12,12 +12,14 @@ notice() {
 # Exit on error
 set -e
 
+. ../../supports/source-me
+
 # Initialize the workspace to be able to work
 log "clone the sources"
 test -d flask-by-example || git clone https://github.com/realpython/flask-by-example.git && notice "already done"
 
 log "Let's build it"
-fig build
+docker-compose build
 
 log "Let's run it"
-fig up
+docker-compose up

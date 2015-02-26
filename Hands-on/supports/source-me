@@ -12,6 +12,13 @@ swarm() {
            -v /root/.docker:/root/.docker --rm  \
            emilevauge/docker-cluster swarm $@
 }
+docker-compose() {
+    docker run -it --rm \
+           -v /var/run/docker.sock:/var/run/docker.sock  \
+           -v $PWD:/src \
+           -w /src \
+           jmcarbo/docker-compose $@
+}
 dind() {
     docker run --privileged --name "$1" -h "$1" -d -p $2:$2 -e PORT=$2 -e DOCKER_DAEMON_ARGS="$3" dind
 }
