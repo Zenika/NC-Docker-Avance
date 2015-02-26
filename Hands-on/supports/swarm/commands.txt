@@ -1,0 +1,15 @@
+Start a redis on node with type==somuchpower and bind port
+docker -H 127.0.0.1:2385 run -d -P -e constraint:type==somuchpower --name redis -p 6379:6379 redis
+Start a mysql node with type==ssd (and randowm port \o/)
+docker -H 127.0.0.1:2385 run -d -P -e constraint:storage==ssd --name mysql mysql
+
+docker -H 127.0.0.1:2385 ps
+
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS                  PORTS                          NAMES
+3ac3a2134fb7        mysql:5             "mysql_safe            8 seconds ago       Up Less than a second   172.17.0.130:6379->3306/tcp    node2/mysql
+3630c73c2adf        redis:2             "/entrypoint.sh redi   6 hours ago         Up 6 hours              172.17.0.129:49153->6379/tcp   node3/redis
+
+Connect to redis (--link)
+docker -H 127.0.0.1:2385 run -it --link redis1:redis --rm redis sh -c
+'exec redis-cli -h "$REDIS_PORT_6379_TCP_ADDR" -p "$REDIS_PORT_6379_TCP_PORT"'
+

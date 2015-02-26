@@ -43,7 +43,7 @@ do
     docker stop "${NODE_NAME}" >/dev/null 2>/dev/null || true
     docker rm "${NODE_NAME}" >/dev/null 2>/dev/null || true
     notice "node ${node} : start a docker engine in docker on port ${ENGINE_PORT} with option : $LABELS"
-    dind $ENGINE_PORT "$LABELS"
+    dind "${NODE_NAME}" $ENGINE_PORT "$LABELS"
     notice "node ${node} : wait for engine to startup (5s)"
     sleep 3
     NODE_IP=$(docker inspect $NODE_NAME | grep IPAddress | cut -d '"' -f 4)
@@ -65,6 +65,9 @@ DOCKER_HOST=127.0.0.1:2385 docker info
 notice "swarm list"
 swarm list token://${CLUSTER_ID}
 
-log "you can play now ;-p"
+log "you can now play with your cluster"
+log "- cluster : token://${CLUSTER_ID}"
+log "- swarm manager (docker) : 127.0.0.1:2835"
 warn "** Don't forget to set your ENV variable DOCKER_HOST to 127.0.0.1:2835 **"
 warn "** export DOCKER_HOST=127.0.0.1:2385 **"
+log "Enjoy ;-)"

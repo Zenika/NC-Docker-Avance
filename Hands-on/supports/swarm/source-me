@@ -13,5 +13,5 @@ swarm() {
            emilevauge/docker-cluster swarm $@
 }
 dind() {
-    docker run --privileged --name "dind-$1" -d -p $1:$1 -e PORT=$1 -e DOCKER_DAEMON_ARGS="$2" dind
+    docker run --privileged --name "$1" -h "$1" -d -p $2:$2 -e PORT=$2 -e DOCKER_DAEMON_ARGS="$3" dind
 }
