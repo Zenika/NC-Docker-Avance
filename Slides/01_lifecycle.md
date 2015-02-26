@@ -9,7 +9,6 @@
 ![](resources/images/decouverte-conteneur-workflow.png)
 
 Notes :
-- TODO update the schema and use ditaa :)
 <!--- ![](resources/images/decouverte-conteneur-workflow.png) -->
 <!-- ![](resources/images/lifecycle.png) -->
 
@@ -25,7 +24,8 @@ Notes :
 
 Notes :
 - load, save -> à ne pas confondre avec export/load (sur conteneurs)
-- history
+- docker history golang, docker images --tree
+- docker save --output golang.tar golang, docker rmi golang golang:1.3, docker load --input golang.tar
 
 
 
@@ -33,7 +33,7 @@ Notes :
 
 1. ``tag`` : étiquetter une image dans un repository
 ```bash
-$ docker tag monimage monimage
+$ docker tag monimage monimage:1
 $ docker tag monimage privateregistry.com/vdemeester/monimage:latest
 ```
 2. ``push`` : envoyer une image sur le repository (public ou privé)
@@ -50,6 +50,7 @@ $ docker pull privateregistry.com/vdemeester/monimage:latest
 Notes :
 - pull/push, automated build.. <= publier vos images
 - Local registry
+- docker tag golang golang:mine && docker images | grep golang
 
 
 
@@ -89,7 +90,9 @@ Notes :
 
 Notes :
 - ``export`` souvent utilisé pour *applatir* une image
-- ``inspect`` démo avec formats
+- ``inspect`` démo avec formats : 
+    - docker inspect -format '{{.NetworkSettings.IPAddress}}' id
+    - docker inspect id | grep IPAddress | cut -d '"' -f 4
 
 
 
@@ -105,8 +108,8 @@ ou sans timestamp, en mode follow (tail -f) ou non.
 
 Notes :
 - export/import
+- docker events, docker stats id, docker top id, docker logs id
 - kill, wait, exec <-- make it work (enter)
-- inspect, events, port, top, stats (1.5)
 - cp : copies a folder out of a container fs
 
 

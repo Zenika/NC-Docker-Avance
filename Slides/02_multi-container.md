@@ -11,8 +11,7 @@
 - [Flask by Example](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
     - PostgreSQL
     - Redis
-    - Backend (flask python)
-    - Frontend (angular js)
+    - Application
 
 Notes :
 - Besoin réel, plusieurs conteneurs, ...
