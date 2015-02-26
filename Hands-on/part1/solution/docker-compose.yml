@@ -7,8 +7,10 @@ db:
 redis:
   image: redis
 frontend:
-  build: app
+  build: flask-by-example
   command: python app.py
+  environment:
+    - APP_SETTINGS=config.DevelopmentConfig
   links:
     - db
     - redis
