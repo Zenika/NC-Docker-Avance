@@ -13,7 +13,7 @@ notice() {
     echo "$(tput setaf 6)<$(tput bold)<$(tput sgr0) $@"
 }
 
-. ../source-me
+. ../../source-me
 
 DEFAULT_LABELS="storage=disk"
 

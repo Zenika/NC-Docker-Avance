@@ -12,7 +12,7 @@ notice() {
 # Exit on error
 set -e
 
-. ../../supports/source-me
+. ../../source-me
 
 # Initialize the workspace to be able to work
 log "clone the sources"
