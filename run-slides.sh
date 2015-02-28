@@ -6,4 +6,4 @@ test -d node_modules || {
 }
 
 echo ">> grunt ;-p"
-docker run -it -v $PWD:/data --net=host --rm dockerfile/nodejs-bower-grunt grunt
+docker run -it -v $PWD:/data -p 8000:8000 --rm dockerfile/nodejs-bower-grunt grunt
