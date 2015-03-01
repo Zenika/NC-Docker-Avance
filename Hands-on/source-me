@@ -1,11 +1,11 @@
 # bash file to source that defines commands to be used
 # It's based on https://github.com/EmileVauge/docker-cluster
-machine() {
-    docker run --privileged -it  \
-           -v /var/run/docker.sock:/var/run/docker.sock  \
-           -v /root/.docker:/root/.docker --rm  \
-           emilevauge/docker-cluster machine $@
-}
+#docker-machine() {
+#    docker run --privileged -it  \
+#           -v /var/run/docker.sock:/var/run/docker.sock  \
+#           -v /root/.docker:/root/.docker --rm  \
+#           emilevauge/docker-cluster machine $@
+#}
 swarm() {
     docker run --privileged -it  \
            -v /var/run/docker.sock:/var/run/docker.sock  \
