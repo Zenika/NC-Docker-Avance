@@ -1,0 +1,36 @@
+# Start postgres with it as volumes
+docker run -d --name mypostgres \
+       -e POSTGRES_PASSWORD=zenika \
+       -e POSTGRES_USER=nc-avance \
+       postgres
+# Validate the database is created
+docker run -it --link mypostgres:postgres --rm postgres sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U nc-avance'  
+# Run redis
+docker run -d --name myredis redis
+# Build the app image
+docker build -t myapp .
+# Run the backend :)
+docker run -t --name mybackend \
+       --link myredis:redis \
+       --link mypostgres:db \
+       -e APP_SETTINGS=config.DevelopmentConfig \
+       myapp python worker.py
+# Upgrade the db for the frontend
+docker run -t --rm \
+       --link myredis:redis \
+       --link mypostgres:db \
+       -e APP_SETTINGS=config.DevelopmentConfig \
+       myapp python manage.py db upgrade
+# Migrate the db for the frontend
+docker run -t --rm \
+       --link myredis:redis \
+       --link mypostgres:db \
+       -e APP_SETTINGS=config.DevelopmentConfig \
+       myapp python manage.py db migrate
+# Run the frontend :)
+docker run -t --name myfrontend \
+       --link myredis:redis \
+       --link mypostgres:db \
+       -e APP_SETTINGS=config.DevelopmentConfig \
+       -p 5000:5000 \
+       myapp python app.py
