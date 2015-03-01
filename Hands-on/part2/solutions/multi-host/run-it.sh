@@ -27,28 +27,29 @@ create_machine() {
     }
 }
 
-docker-machine ls | grep registry || {
-    log "Create registry"
-    docker-machine create -d virtualbox --virtualbox-disk-size '4500' --virtualbox-memory '256' registry
-    $(docker-machine env registry)
-    REGISTRY_IP=$(docker-machine ip registry)
-    docker run -d -e SETTINGS_FLAVOR=local \
-       -e STORAGE_PATH=/registry \
-       -e CORS_ORIGINS="[\'*\']" \
-       -p 5000:5000 \
-       registry
-    unset DOCKER_CERT_PATH
-    unset DOCKER_HOST
-    unset DOCKER_TLS_VERIFY
-    docker tag postgres ${REGISTRY_IP}:5000/postgres
-    docker push ${REGISTRY_IP}:5000/postgres
-    docker tag redis ${REGISTRY_IP}:5000/redis
-    docker push ${REGISTRY_IP}:5000/redis
-    docker tag zenika/nc-avance-solution ${REGISTRY_IP}:5000/zenika/nc-avance-solution
-    docker push ${REGISTRY_IP}:5000/zenika/nc-avance-solution
-}
 
-read
+#docker-machine ls | grep registry || {
+#    log "Create registry"
+#    docker-machine create -d virtualbox --virtualbox-disk-size '4500' --virtualbox-memory '256' registry
+#    $(docker-machine env registry)
+#    notice ".. wating 3s to docker engine to start"
+#    wait 3
+#    REGISTRY_IP=$(docker-machine ip registry)
+#    docker run -d -e SETTINGS_FLAVOR=local \
+#       -e STORAGE_PATH=/registry \
+#       -e CORS_ORIGINS="[\'*\']" \
+#       -p 5000:5000 registry
+#    unset DOCKER_CERT_PATH
+#    unset DOCKER_HOST
+#    unset DOCKER_TLS_VERIFY
+#    notice ".. waiting 5s to registry to start"
+#    docker tag postgres ${REGISTRY_IP}:5000/postgres
+#    docker push ${REGISTRY_IP}:5000/postgres
+#    docker tag redis ${REGISTRY_IP}:5000/redis
+#    docker push ${REGISTRY_IP}:5000/redis
+#    docker tag zenika/nc-avance-solution ${REGISTRY_IP}:5000/zenika/nc-avance-solution
+#    docker push ${REGISTRY_IP}:5000/zenika/nc-avance-solution
+#}
 
 docker-machine ls | grep swarm-master || {
     log "Create the swarm cluster"

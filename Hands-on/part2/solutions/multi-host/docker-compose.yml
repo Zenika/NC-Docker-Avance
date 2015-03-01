@@ -1,0 +1,31 @@
+db:
+  image: postgres
+  environment:
+    - POSTGRES_USER=nc-avance
+    - POSTGRES_PASSWORD=zenika
+redis:
+  image: redis
+backend:
+  build: flask-by-example
+  command: sh backend.sh
+  environment:
+    - POSTGRES_USER=nc-avance
+    - POSTGRES_PASSWORD=zenika
+    - APP_SETTINGS=config.DevelopmentConfig
+  links:
+    - db
+    - redis
+frontend:
+  build: flask-by-example
+  command: sh frontend.sh
+  ports:
+    - "5000:5000"
+  environment:
+    - POSTGRES_USER=nc-avance
+    - POSTGRES_PASSWORD=zenika
+    - APP_SETTINGS=config.DevelopmentConfig
+  links:
+    - db
+    - redis
+
+
