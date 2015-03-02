@@ -32,13 +32,13 @@ for node in $(seq 4)
 do
     ENGINE_PORT="2375${node}"
     LABELS="--label $DEFAULT_LABELS"
-    NODE_NAME="dind-${ENGINE_PORT}"
+    NODE_NAME="node-${node}"
     test $node == 2 && {
         LABELS="--label storage=ssd"
     }
     test $node == 3 && {
         LABELS="${LABELS} --label type=somuchpower"
-    }
+   } 
     notice "node ${node} : remove running one (if present)"
     docker stop "${NODE_NAME}" >/dev/null 2>/dev/null || true
     docker rm "${NODE_NAME}" >/dev/null 2>/dev/null || true

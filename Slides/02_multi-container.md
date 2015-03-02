@@ -14,6 +14,7 @@
     - Application
 
 Notes :
+- app == pls process
 - Besoin réel, plusieurs conteneurs, ...
 - TODO: schema (inspiration gitlab schema :
 https://github.com/gitlabhq/gitlabhq/blob/master/doc/development/gitlab_diagram_overview.png)
@@ -71,8 +72,8 @@ Notes :
 
 - Redis : ``docker run -d --name redis redis``
 - PostgreSQL : ``docker run -d --name db postgresql``
-- Backend :``docker run -d --link redis:redis --link db:db --name backend myfrontend``
-- Frontend : ``docker run -d --link backend:back mybackend``
+- Build frontend : ..
+- Frontend :``docker run -d --link redis:redis --link db:db --name backend myfrontend``
 ![](resources/images/giphy_whatif1.gif)
 
 Et si on pouvait faire ça en une commande ?

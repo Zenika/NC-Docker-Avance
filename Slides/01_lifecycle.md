@@ -26,6 +26,8 @@ Notes :
 - load, save -> à ne pas confondre avec export/load (sur conteneurs)
 - docker history golang, docker images --tree
 - docker save --output golang.tar golang, docker rmi golang golang:1.3, docker load --input golang.tar
+- regarder filter
+- show save
 
 
 
@@ -71,7 +73,7 @@ ONBUILD RUN /usr/local/bin/cabal install --only-dependencies
 
 Notes :
 - ENTRYPOINT : démo avec un echo :)
-- ONBUILD : démo avec un build ?
+- ONBUILD : démo avec un build ? (Dockerfile abstrait)
 - Rappels sur le comportement de certaines commande WORKDIR
 
 
@@ -91,13 +93,14 @@ Notes :
 Notes :
 - ``export`` souvent utilisé pour *applatir* une image
 - ``inspect`` démo avec formats : 
-    - docker inspect -format '{{.NetworkSettings.IPAddress}}' id
+    - docker inspect --format '{{.NetworkSettings.IPAddress}}' id
     - docker inspect id | grep IPAddress | cut -d '"' -f 4
 
 
 
 ## Conteneurs (2/2)
 
+- ``exec`` : 
 - ``port`` : Lister les ports mappés (bindés) pour un conteneur
 - ``top`` : afficher les processus du conteneur
 - ``stats`` : afficher des statistiques pour un conteneur
