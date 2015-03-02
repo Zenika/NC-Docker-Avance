@@ -27,7 +27,6 @@ Notes :
 - docker history golang, docker images --tree
 - docker save --output golang.tar golang, docker rmi golang golang:1.3, docker load --input golang.tar
 - regarder filter
-- show save
 
 
 
@@ -74,6 +73,7 @@ ONBUILD RUN /usr/local/bin/cabal install --only-dependencies
 Notes :
 - ENTRYPOINT : démo avec un echo :)
 - ONBUILD : démo avec un build ? (Dockerfile abstrait)
+- ADD : si tar.{gz,..} -> extrait automatiquement
 - Rappels sur le comportement de certaines commande WORKDIR
 
 
@@ -100,7 +100,7 @@ Notes :
 
 ## Conteneurs (2/2)
 
-- ``exec`` : 
+- ``exec`` : exécuter une commande dans un conteneur
 - ``port`` : Lister les ports mappés (bindés) pour un conteneur
 - ``top`` : afficher les processus du conteneur
 - ``stats`` : afficher des statistiques pour un conteneur
@@ -121,6 +121,8 @@ Notes :
 
 - Rappel sur les volumes
 - Volumes partagés
+    - **TODO** schema
+    - ``volume-from container`` pour se binder sur les volumes
 
 Notes :
 - Volumes partagés ``--volume-from``

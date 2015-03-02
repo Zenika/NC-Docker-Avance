@@ -33,7 +33,7 @@ Faire tourner *flask by example* grâce à docker-compose.
     - postgres (officielle)
     - redis (officielle)
     - backend (basé sur python)
-    - frontend (basé sur ??)
+    - frontend (basé sur python, même container que backend ^_^'')
 
 
 

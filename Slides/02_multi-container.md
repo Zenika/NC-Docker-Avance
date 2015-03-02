@@ -6,15 +6,16 @@
 
 ## Pourquoi ?
 
-- 1 conteneurs, 1 processus
-- *Real-life* pas aussi simple
-- [Flask by Example](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
+- Un conteneur, un processus
+- Un application c'est bien souvent plusieurs processus
+
+- Example : [Flask by Example](https://realpython.com/blog/python/flask-by-example-part-1-project-setup/)
     - PostgreSQL
     - Redis
-    - Application
+    - Backend
+    - Frontend
 
 Notes :
-- app == pls process
 - Besoin réel, plusieurs conteneurs, ...
 - TODO: schema (inspiration gitlab schema :
 https://github.com/gitlabhq/gitlabhq/blob/master/doc/development/gitlab_diagram_overview.png)
@@ -23,7 +24,9 @@ https://github.com/gitlabhq/gitlabhq/blob/master/doc/development/gitlab_diagram_
 
 ## Comment ?
 
-TODO
+**TODO** Schema
+
+Docker fournit un mécanisme : les liens (``links``)
 
 Notes :
 - Schema avec les différents composants dans des docker (mode dev,
@@ -39,13 +42,13 @@ Syntaxe : ``--link <name or id>:<alias>``
 
 
 ```bash
-$ docker run -d --name db mysql
-$ docker run -d -P --name web --link db:db myapp
+$ docker run -d --name mymysql mysql
+$ docker run -d -P --name web --link mymysql:db myapp
 ```
 
 - Défini des vabriable d'environnement dans la destination (``web``)
 - L'alias va servir de prefix pour ces variables
-- Pas de magie, votre application doit lire ces variables
+- Pas de magie, votre application doit prendre en compte ces variables
 
 Notes :
 - Port ne sont pas binder/exposés
@@ -71,9 +74,9 @@ Notes :
 ## Let's do it (manually)
 
 - Redis : ``docker run -d --name redis redis``
-- PostgreSQL : ``docker run -d --name db postgresql``
-- Build frontend : ..
-- Frontend :``docker run -d --link redis:redis --link db:db --name backend myfrontend``
+- PostgreSQL : ``docker run -d --name postgres postgresql``
+- Backend : ``docker run -d --link redis:redis --link postgres:db --name backend mybackend``
+- Frontend :``docker run -d --link redis:redis --link postgres:db --name backend myfrontend``
 ![](resources/images/giphy_whatif1.gif)
 
 Et si on pouvait faire ça en une commande ?
@@ -89,11 +92,11 @@ Notes :
 - *Docker-compose* a.k.a **fig** (python, conf. yaml)
     - Support officiel Docker
 
-
 - Crane (Go, conf. json/yaml)
 - Maestro (Python, conf. yaml)
 - Decking (Node, conf. json)
 
+- cloud ready : kubernetes, ...
 
 Notes :
 - à la main c'est bien mais.. je suis fainéant.. :D

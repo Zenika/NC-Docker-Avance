@@ -3,7 +3,7 @@
 ![](resources/images/hands-on-2.png)
 
 Notes :
-- On utilise toujours https://github.com/realpython/flask-by-example
+- On utilise toujours https://github.com/vdemeester/flask-by-example
 - Dans le premier exercie on deploie flask-by-example (application multi-container) sur un host distant (uniquement un). Le host distant peut-être aussi un VM virtualbox en local. Utiliser docker-machine. 
 - Dans le deuxièem exerice on deploie les 3 containers de flask-by-example sur 3 Docker Hosts differents.
 
