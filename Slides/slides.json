@@ -3,8 +3,8 @@
     "01_lifecycle.md",
     "02_multi-container.md",
     "03_hands-on.md",
-    "04_multi-host.md",
-    "05_deployment.md",
+    "04_cloud.md",
+    "05_multihost.md",
     "06_hands-on.md",
     "07_thanks.md"
 ]
