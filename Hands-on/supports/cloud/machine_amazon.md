@@ -6,7 +6,13 @@ https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html (optiona
 I've exported variables AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_VPC_ID in .bash_profile
 
 ## Create the docker host VM on amazon cloud
-    docker-machine create -d amazonec2 --amazonec2-access-key $AWS_ACCESS_KEY_ID --amazonec2-secret-key $AWS_SECRET_ACCESS_KEY --amazonec2-vpc-id $AWS_VPC_ID--amazonec2-region eu-central-1 --amazonec2-zone b nc-amazonec2-machine
+    docker-machine create -d amazonec2 \
+    --amazonec2-access-key $AWS_ACCESS_KEY_ID \
+    --amazonec2-secret-key $AWS_SECRET_ACCESS_KEY \
+    --amazonec2-vpc-id $AWS_VPC_ID \
+    --amazonec2-region eu-central-1 \
+    --amazonec2-zone b \
+    nc-amazonec2-machine
 
 ## Point your docker client to the docker host VM
     $(docker-machine env nc-amazonec2-machine)
