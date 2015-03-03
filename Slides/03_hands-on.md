@@ -27,7 +27,6 @@ Faire tourner *flask by example* grâce à docker-compose.
 
 - Les différentes sources se trouve ici : http://github.com/zenika/..
     - ``frontend`` & ``backend`` : source de notre application
-    - ``data`` : répertoire de données
     - ``docker-compose.yml`` : fichier à compléter
 - Images sur lesquelles se baser
     - postgres (officielle)
