@@ -91,4 +91,9 @@ Notes :
 - ``$ docker run -d -e constraint:storage==ssd --name postgres postgres``
 <br/>``$ docker run -d --link redis:redis --link postgres:db --name backend backend``
 
+Notes :
+- docker-compose
+    - build KO
+    - timeout rapidement => mettre à dispo les images
+
 
