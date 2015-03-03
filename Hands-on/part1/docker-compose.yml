@@ -1,0 +1,29 @@
+db:
+  image: 
+  environment:
+    - POSTGRES_USER=
+    - POSTGRES_PASSWORD=
+redis:
+  image: 
+backend:
+  build: 
+  command: sh backend.sh
+  environment:
+    - POSTGRES_USER=nc-avance
+    - POSTGRES_PASSWORD=zenika
+    - APP_SETTINGS=config.DevelopmentConfig
+  links:
+    - 
+frontend:
+  build: 
+  command: sh frontend.sh
+  ports:
+    - 
+  environment:
+    - POSTGRES_USER=
+    - POSTGRES_PASSWORD=
+    - APP_SETTINGS=config.DevelopmentConfig
+  links:
+    - 
+
+
