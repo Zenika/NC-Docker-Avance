@@ -1,12 +1,12 @@
 db:
-  image: 
+  # 
   environment:
     - POSTGRES_USER=
     - POSTGRES_PASSWORD=
 redis:
-  image: 
+  #
 backend:
-  build: 
+  # 
   command: sh backend.sh
   environment:
     - POSTGRES_USER=nc-avance
@@ -15,7 +15,7 @@ backend:
   links:
     - 
 frontend:
-  build: 
+  # 
   command: sh frontend.sh
   ports:
     - 
