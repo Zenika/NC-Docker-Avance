@@ -3,7 +3,7 @@
 ![](resources/images/hands-on-1.png)
 
 Notes :
-- Using https://github.com/realpython/flask-by-example
+- Using https://github.com/vdemeester/flask-by-example
 - Plusieurs façon d'utiliser fig : installer via pip, package manager
   ou utiliser image dduportal/fig
 - Une app qui a besoin de (SGBD [write], Elasticsearch [read/index],
