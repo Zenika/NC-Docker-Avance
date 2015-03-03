@@ -24,7 +24,7 @@ https://github.com/gitlabhq/gitlabhq/blob/master/doc/development/gitlab_diagram_
 
 ## Comment ?
 
-**TODO** Schema
+![](resources/images/multi-conteneur.png)
 
 Docker fournit un mécanisme : les liens (``links``)
 

@@ -36,14 +36,10 @@ Notes :
 
 ## Multi hôte (version ambassador)
 
-**TODO** Schema ambassador
-```
-(consumer) --> (redis-ambassador) --> (redis)
-(consumer) --> (redis-ambassador) ---network---> (redis-ambassador) --> (redis)
-```
-
 - Utiliser ``--link`` sur le/les ambassadeur(s)
 - Démarrer les embassadeurs avec la destination
+
+![](resources/images/ambassador-pattern.png)
 
 Notes :
 - https://docs.docker.com/articles/ambassador_pattern_linking/
@@ -84,12 +80,14 @@ Notes :
 
 ## Multi hôte (version swarm)
 
-![](resources/images/giphy_whatif2.gif)
-
 - Mettre en place swarm (manager & agent)
 - Faire pointer le client vers swarm (``DOCKER_HOST``, ..)
 - ``$ docker run -d -e constraint:storage==ssd --name postgres postgres``
 <br/>``$ docker run -d --link redis:redis --link postgres:db --name backend backend``
+
+![](resources/images/giphy_minions1.gif)
+
+<span style="font-size:0.85em; color: #666;">Note: Ça marchera un jour ;-)</span>
 
 Notes :
 - docker-compose

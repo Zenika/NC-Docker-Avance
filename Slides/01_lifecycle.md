@@ -67,6 +67,11 @@ Notes :
 ONBUILD RUN /usr/local/bin/cabal install --only-dependencies
 ```
 
+<br />
+
+- Attention à l'ordre des commandes (``WORKDIR``, ``VOLUME``, ..)
+
+
 <br/><br/>
 
 
@@ -115,15 +120,4 @@ Notes :
 - kill, wait, exec <-- make it work (enter)
 - cp : copies a folder out of a container fs
 
-
-
-## Volumes
-
-- Rappel sur les volumes
-- Volumes partagés
-    - **TODO** schema
-    - ``volume-from container`` pour se binder sur les volumes
-
-Notes :
-- Volumes partagés ``--volume-from``
 
