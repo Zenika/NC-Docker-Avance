@@ -144,7 +144,7 @@ Notes :
 - ``logs``, ``port``, ``ps`` : voir les infos (logs, port, processus)
 - ``scale`` : définir le nombre de containers à lancer pour chaque
 ```bash
-$ fig scale web=2 worker=3
+$ docker-compose scale web=2 worker=3
 ```
 
 Notes :
