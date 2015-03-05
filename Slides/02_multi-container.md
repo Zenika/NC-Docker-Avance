@@ -42,8 +42,8 @@ Syntaxe : ``--link <name or id>:<alias>``
 
 
 ```bash
-$ docker run -d --name mymysql mysql
-$ docker run -d -P --name web --link mymysql:db myapp
+$ docker run -d --name mypostgres postgres
+$ docker run -d -P --name web --link mypostgres:db myapp
 ```
 
 - Défini des vabriable d'environnement dans la destination (``web``)
@@ -75,8 +75,8 @@ Notes :
 
 - Redis : ``docker run -d --name redis redis``
 - PostgreSQL : ``docker run -d --name postgres postgresql``
-- Backend : ``docker run -d --link redis:redis --link postgres:db --name backend mybackend``
-- Frontend :``docker run -d --link redis:redis --link postgres:db --name backend myfrontend``
+- Backend : ``docker run -d --link redis:redis --link postgres:db --name backend backend``
+- Frontend :``docker run -d --link redis:redis --link postgres:db --name frontend frontend``
 ![](resources/images/giphy_whatif1.gif)
 
 Et si on pouvait faire ça en une commande ?
@@ -96,11 +96,11 @@ Notes :
 - Maestro (Python, conf. yaml)
 - Decking (Node, conf. json)
 
-- cloud ready : kubernetes, ...
+- cloud ready : kubernetes, flocker, ...
 
 Notes :
 - à la main c'est bien mais.. je suis fainéant.. :D
-- Local (now) / distant (2nd partie @mariolet)
+- fig par orchard, racheté par Docker inc.
 - fig, decking, flocker, ...
 
 

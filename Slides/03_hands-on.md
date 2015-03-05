@@ -36,6 +36,33 @@ Faire tourner *flask by example* grâce à docker-compose.
 
 
 
+## docker-compose : configuration
+
+docker-compose.yml
+```
+web:
+    build: .
+    command: python app.py
+    links:
+    - db
+    ports:
+    - "8000:8000"
+mycontainer:
+    build: ./path
+    expose:
+    - "3000"
+    volumes:
+    - ~/configs:/etc/configs/:ro
+    net: "none"
+    user: moi
+db:
+    image: postgres
+    environment:
+    - LANG=C
+```
+
+
+
 ## Solution ?
 
 ![](resources/images/wondering.gif)

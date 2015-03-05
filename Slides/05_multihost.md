@@ -76,13 +76,11 @@ Notes :
 
 - Mettre en place swarm (manager & agent)
 - Faire pointer le client vers swarm (``DOCKER_HOST``, ..)
-- ``$ docker run -d -e constraint:storage==ssd --name postgres postgres``
-<br/>``$ docker run -d constraint:storage==redis --name redis redis``
+- ``$ docker run -d --name postgres postgres``
+<br/>``$ docker run -d -e affinity:container==postgres --name redis redis``
 <br/>``$ docker run -d --link redis:redis --link postgres:db --name backend backend``
 
 ![](resources/images/giphy_minions1.gif)
-
-<span style="font-size:0.85em; color: #666;">Note: Ça marchera un jour ;-)</span>
 
 Notes :
 - docker-compose
@@ -94,10 +92,11 @@ Notes :
   backend
 
 
+
 ## Multi hôte (version ambassador)
 
 - Utiliser ``--link`` sur le/les ambassadeur(s)
-- Démarrer les embassadeurs avec la destination
+- Démarrer les ambassadeurs avec la destination
 
 ![](resources/images/ambassador-pattern.png)
 
