@@ -83,6 +83,7 @@ Notes :
 - Mettre en place swarm (manager & agent)
 - Faire pointer le client vers swarm (``DOCKER_HOST``, ..)
 - ``$ docker run -d -e constraint:storage==ssd --name postgres postgres``
+<br/>``$ docker run -d constraint:storage==redis --name redis redis``
 <br/>``$ docker run -d --link redis:redis --link postgres:db --name backend backend``
 
 ![](resources/images/giphy_minions1.gif)
@@ -93,5 +94,8 @@ Notes :
 - docker-compose
     - build KO
     - timeout rapidement => mettre à dispo les images
-
+- docker run -d --name backend \
+  -e DB_PORT_5432_TCP_ADDR=${IP1} -e DB_PORT_5432_TCP_PORT=${PORT1} \
+  -e REDIS_PORT_6379_TCP_ADDR=${IP2} -e -REDIS_PORT_6379_TCP_PORT=${PORT2} \
+  backend
 
