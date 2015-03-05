@@ -19,7 +19,7 @@ frontend:
   build: flask-by-example
   command: sh frontend.sh
   ports:
-    - "5000:5000"
+    - "80:5000"
   environment:
     - POSTGRES_USER=nc-avance
     - POSTGRES_PASSWORD=zenika

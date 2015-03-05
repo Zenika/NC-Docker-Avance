@@ -11,10 +11,7 @@ Il y a 2 sujets ici :
 
 
 ## Docker Host distant
-
-<br><br><br>
-**SCHEMA (TODO)**
-<br><br><br><br><br><br>
+![](resources/images/remotehost.png)
 
 ```bash
     export DOCKER_HOST=tcp://192.168.59.103:2376
@@ -32,14 +29,11 @@ Comment créer un docker host distant ? Avec boot2docker par exemple. Mais depui
 
 
 ## Docker Machine
-<br>
+
 Outil pour créer et gérer des Docker hosts. Distants ou pas.
+![](resources/images/dockermachine.png)
 
-<br><br><br>
-**SCHEMA (TODO)**
-<br><br><br><br><br>
-
-Providers déjà supportés : <br/><br/>
+Providers déjà supportés : <br/>
 *Amazon EC2*, *Microsoft Azure*, *Microsoft Hyper-V*, *DigitalOcean*, *Google Compute Engine*, *OpenStack*, *Rackspace*, *SoftLayer*, *VirtualBox*, *VMware Fusion*, *VMware vCloud Air*, *VMware vSphere*
 
 Notes :
@@ -55,8 +49,8 @@ Nous allons nous en servir pour deployer des containers distants.
 <br/><br/><br/>
 Commandes, disponibles : <br/>
 
-* *create*, *rm*
-* *env*, *ip*
+* *create*, *rm*, *update*
+* *env*, *ip*, *inspect*
 * *ssh*
 
 
@@ -70,20 +64,19 @@ Docker Machine permet la géstion de host Docker :
 
 ## Déploiement dans le cloud - Demo
 <br/>
-*GCE*, *Amazon EC2*, *Microsoft Azure*, *Virtualbox*
-<br/>
-<br/>
+*GCE*, *Amazon EC2*, *Microsoft Azure*, *Virtualbox*<br/>
+
 1. Configuration du service (operations manuelles)
 2. Creation de la machine
 ```bash
-docker-machine create -d <driver-name> [DRIVER-SPECIFIC-OPTIONS] <machine-name>
+docker-machine create -d <driver> [DRIVER-SPECIFIC-OPTIONS] <machine-name>
 ```
 3. Activer le flux TCP en entrée (opération manuelle)
 4. Setup du client
 ```bash
 $(docker-machine env)
 ```
-5. Utilisation du cient Docker
+5. Utilisation du client Docker
 ```bash
 docker run -d zenika/nodejs-sample-app
 ```
