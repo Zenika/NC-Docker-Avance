@@ -34,19 +34,22 @@ Notes :
 
 1. ``tag`` : étiquetter une image dans un repository
 ```bash
-$ docker tag monimage monimage:1
-$ docker tag monimage privateregistry.com/vdemeester/monimage:latest
+$ docker tag vdemeester/monimage vdemeester/monimage:1
+$ docker tag vdemeester/monimage privateregistry.com/vdemeester/monimage:latest
 ```
 2. ``push`` : envoyer une image sur le repository (public ou privé)
 ```bash
-$ docker push monimage
+$ docker push vdemeester/monimage
 $ docker push privateregistry.com/vdemeester/monimage:latest
 ```
 3. ``pull`` : récupérer une image depuis le repository
 ```bash
-$ docker pull monimage
+$ docker pull vdemeester/monimage
 $ docker pull privateregistry.com/vdemeester/monimage:latest
 ```
+
+- Automated build : image construite à partir des source par Docker
+  inc.
 
 Notes :
 - pull/push, automated build.. <= publier vos images
