@@ -11,20 +11,28 @@ Démo
 
 
 
-## Multi hôte (version manuelle)
+## Multi hôte
+<br>
+![](resources/images/multihost.png)
 
-- Deployer plusieurs conteneur sur des docker différents
-- Faire les liens à la main..
+
+
+## Configuration manuelle
+
+Faire les liens à la main...
 
 ```bash
-$ export DOCKER_HOST=1.1.1.1
+## Run postgre container on Amazon
+$ export DOCKER_HOST=tcp://54.93.99.223:2376
 $ docker run -d --name postgres postgres
+
+## Run backend container on Azure
 $ export POSTGRES_IP=$(docker inspect --format […])
 $ export POSTGERS_PORT=5432
-$ DOCKER_HOST=2.2.2.2 docker run -d --name backend \
+$ DOCKER_HOST=tcp://104.42.136.179:2376
+$ docker run -d --name backend \
     -e DB_PORT_5432_TCP_ADDR=${POSTGRES_IP} \
     -e DB_PORT_5432_TCP_PORT=${POSTGRES_PORT} mybackend
-$ # …
 ```
 
 ![](resources/images/giphy_whatif.gif)
@@ -34,25 +42,14 @@ Notes :
 
 
 
-## Multi hôte (version ambassador)
-
-- Utiliser ``--link`` sur le/les ambassadeur(s)
-- Démarrer les embassadeurs avec la destination
-
-![](resources/images/ambassador-pattern.png)
-
-Notes :
-- https://docs.docker.com/articles/ambassador_pattern_linking/
-
-
-
-## Docker swarm (1/2)
+## Docker Swarm (1/2)
 
 *Clustering made-in Docker*
+![](resources/images/multihost-swarm.png)
 
+
+Notes :
 - Aggrège des hôtes Docker
-    - Manager & agent
-      **TODO** schema (manager/agent)
 - Le manager parle Docker
 - Support de base plusieurs système de découverte (discovery)
     - etcd, consul, zookeeper, built-in, static
@@ -62,18 +59,15 @@ Notes :
 
 ## Docker swarm (2/2)
 
-- Place intelligement les conténeurs (scheduler)
+- Démarre intelligement les conténeurs (scheduler)
     - ressources disponible vs demandée
     - mécanisme de filtre (contrainte, affinity, ..)<br/>
     ``-e constraint:storage==ssd``<br/>
     ``-e affinity:container==front``
 
-- Mise en place
+- Mise en place avec discovery statique
     - Manager :
-    ``docker run --name swarm-manager -d -P swarm manage token://ef32[…]``
-    - Agent (autre hote) :
-    ``docker run --name swarm-agent -d -P swarm join
-    --addr=${NODE_ID}:2375 token://ef32[…]``
+    ``docker run --name swarm-manager -d -P swarm manage nodes://<node_ip1:2375>,<node_ip2:2375>,<node_ip3:2375>``
 
 
 
@@ -98,4 +92,16 @@ Notes :
   -e DB_PORT_5432_TCP_ADDR=${IP1} -e DB_PORT_5432_TCP_PORT=${PORT1} \
   -e REDIS_PORT_6379_TCP_ADDR=${IP2} -e -REDIS_PORT_6379_TCP_PORT=${PORT2} \
   backend
+
+
+## Multi hôte (version ambassador)
+
+- Utiliser ``--link`` sur le/les ambassadeur(s)
+- Démarrer les embassadeurs avec la destination
+
+![](resources/images/ambassador-pattern.png)
+
+Notes :
+- https://docs.docker.com/articles/ambassador_pattern_linking/
+
 

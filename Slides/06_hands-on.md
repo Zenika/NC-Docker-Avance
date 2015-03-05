@@ -8,9 +8,11 @@ Notes :
 - Dans le deuxièem exerice on deploie les 3 containers de flask-by-example sur 3 Docker Hosts differents.
 
 
+
 ## Mission n.1 ~ niveau Ninja
 
 En utilisant docker machine :
+
 * Créer un nouveau Docker host (sur le cloud ou sur VirtualBox) 
 * Déployer flask-by-example sur ce host
 
@@ -18,11 +20,14 @@ Hints :
 * Utiliser la commande docker-machine create
 * Penser à activer le flux TCP sur le port 80 si ce n'est pas le cas
 * Configurer les variables d'environnments : $(docker-machine env)
-* Utiliser docker-compose
+* Utiliser docker-compose pour deployer flask-by-example
+
+
 
 ## Mission n.2 ~ niveau Jedi
 
 En utilisant docker machine :
+
 * Créer un nouveau Docker host (sur le cloud ou sur VirtualBox) 
 * Déployer flask-by-example sur ce host
 

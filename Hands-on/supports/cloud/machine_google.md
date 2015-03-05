@@ -1,6 +1,6 @@
 # Google
 
-## Perform the before you begin (without installing gcloud)
+## Perform some preliminary steps before you begin (without installing gcloud)
 https://cloud.google.com/container-engine/docs/before-you-begin
 
 ## Create the docker host VM on google cloud 
