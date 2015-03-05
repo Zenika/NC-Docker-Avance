@@ -11,12 +11,15 @@ Notes :
 
 ## Mission n.1 ~ niveau Ninja
 
-En utilisant docker machine :
+<img src="resources/images/ninja.jpeg" style="right:0;position:fixed;">
 
-* Créer un nouveau Docker host (sur le cloud ou sur VirtualBox) 
+*En utilisant docker machine* :
+
+* Créer un nouveau Docker host 
 * Déployer flask-by-example sur ce host
 
-Hints :
+*Hints* :
+
 * Utiliser la commande docker-machine create
 * Penser à activer le flux TCP sur le port 80 si ce n'est pas le cas
 * Configurer les variables d'environnments : $(docker-machine env)
@@ -26,14 +29,11 @@ Hints :
 
 ## Mission n.2 ~ niveau Jedi
 
-En utilisant docker machine :
+<img src="resources/images/jedi.jpeg">
+<br>
+En utilisant docker :
 
-* Créer un nouveau Docker host (sur le cloud ou sur VirtualBox) 
-* Déployer flask-by-example sur ce host
+* Arreter les containers frontend et backend (pas les autres)
+* Déployer frontend et backend sur un autre host en faisant les liens à la main
 
-Hints :
-* Utiliser la commande docker-machine create
-* Penser à activer le flux TCP sur le port 80 si ce n'est pas le cas
-* Configurer les variables d'environnments : $(docker-machine env)
-* Utiliser docker-compose
 
