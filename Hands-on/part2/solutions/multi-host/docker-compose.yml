@@ -6,7 +6,7 @@ db:
 redis:
   image: redis
 backend:
-  build: flask-by-example
+  image: zenika/nc-avance-solution
   command: sh backend.sh
   environment:
     - POSTGRES_USER=nc-avance
@@ -16,7 +16,7 @@ backend:
     - db
     - redis
 frontend:
-  build: flask-by-example
+  image: zenika/nc-avance-solution
   command: sh frontend.sh
   ports:
     - "80:5000"

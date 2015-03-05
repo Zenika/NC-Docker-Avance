@@ -36,6 +36,8 @@ create_machine() {
         test -e ${IMAGES}/postgres.tar.xz && docker load --input ${IMAGES}/postgres.tar.xz || docker pull postgres
         test -e ${IMAGES}/redis.tar.xz && docker load --input ${IMAGES}/redis.tar.xz || docker pull redis
         test -e ${IMAGES}/zenika_nc-avance-solution.tar.xz && docker load --input ${IMAGES}/zenika_nc-avance-solution.tar.xz || docker pull zenika/nc-avance-solution
+        echo "Wait a bit.. to let Virtualbox breath.."
+        sleep 5s
     }
 }
 
