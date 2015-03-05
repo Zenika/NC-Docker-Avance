@@ -35,8 +35,7 @@ github: *vdemeester*<br>
 
 **Vous avez des problèmes pour installer Docker ?**<br>
 
-- Nous avons des clés USB
-- Nous avons des VM sur le cloud Amazon
+- Nous avons des VM sur le cloud
 
 
 
