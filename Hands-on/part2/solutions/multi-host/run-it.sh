@@ -53,8 +53,8 @@ read
 log "Create the node machines"
 create_machine node1 ${CLUSTER_ID}
 create_machine node2 ${CLUSTER_ID}
-#create_machine node3 ${CLUSTER_ID}
-#create_machine node4 ${CLUSTER_ID}
+create_machine node3 ${CLUSTER_ID}
+create_machine node4 ${CLUSTER_ID}
 
 log "Setup environment variables"
 $(docker-machine env --swarm swarm-manager)
