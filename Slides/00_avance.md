@@ -48,8 +48,8 @@ github: *vdemeester*<br>
 - [Cycle de vie : rappels et compléments](#/1/0)
 - [Gestion multi-conteneurs](#/2/0)
 - [Hands-on](#/3/0)
-- [Gestion multi-hosts](#/4/0)
 - [Déploiement dans le "cloud"](#/5/0)
+- [Gestion multi-hôte](#/4/0)
 - [Hands-on](#/6/0)
 
 

@@ -74,7 +74,7 @@ Notes :
 ## Let's do it (manually)
 
 - Redis : ``docker run -d --name redis redis``
-- PostgreSQL : ``docker run -d --name postgres postgresql``
+- PostgreSQL : ``docker run -d --name postgres postgres``
 - Backend : ``docker run -d --link redis:redis --link postgres:db --name backend backend``
 - Frontend :``docker run -d --link redis:redis --link postgres:db --name frontend frontend``
 ![](resources/images/giphy_whatif1.gif)
