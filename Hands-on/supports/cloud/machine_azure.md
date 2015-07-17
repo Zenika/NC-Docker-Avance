@@ -19,7 +19,7 @@ Add an HTTP endpoint for the VM instance nc-azure-machine (private port 80, publ
 ## Point your docker client to the docker host VM
     $(docker-machine env nc-azure-machine)
 
-## Run a sample container on google cloud 
+## Run a sample container on Azure 
     docker run -d -p 80:8080 zenika/nodejs-sample-app
     curl $(docker-machine ip nc-azure-machine)
 
